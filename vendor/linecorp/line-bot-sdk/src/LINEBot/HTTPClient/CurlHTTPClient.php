@@ -110,6 +110,9 @@ class CurlHTTPClient implements HTTPClient
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_BINARYTRANSFER => true,
             CURLOPT_HEADER => true,
+            CURLOPT_HTTPPROXYTUNNEL => true,
+            CURLOPT_PROXYPORT => '80',
+            CURLOPT_PROXY => getenv('FIXIE_URL'),
         ];
         if ($method === 'POST') {
             if (is_null($reqBody)) {
