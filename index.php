@@ -1,4 +1,4 @@
-<?php
+<!--?php
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -14,7 +14,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 // Line Message APIに接続
 $input = file_get_contents('php://input');
 $json = json_decode($input);
-$event = $json->events[0];
+$event = $json--->events[0];
 $http_client = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(getenv('CHANNEL_ACCESS_TOKEN'));
 $bot = new \LINE\LINEBot($http_client, ['channelSecret' => getenv('CHANNEL_SECRET')]);
 
@@ -28,7 +28,7 @@ if ('message' == $event_type) {
     // テキストメッセージの場合
     if ('text' == $event_message_type) {
 
-        // メッセージ取得
+        // メッセージの取得
         $text = $event->message->text;
 
         // メッセージを受け取ったらメッセージをそのまま返す
