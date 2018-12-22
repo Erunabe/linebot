@@ -11,13 +11,31 @@ require_once __DIR__ . '/vendor/autoload.php';
 *
 */
 
+// Line Message APIに接続
+$input = file_get_contents('php://input');
+$json = json_decode($input);
+$event = $json->events[0];
 $http_client = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(getenv('CHANNEL_ACCESS_TOKEN'));
 $bot = new \LINE\LINEBot($http_client, ['channelSecret' => getenv('CHANNEL_SECRET')]);
 
-$signature=$_SERVER['HTTP'.\LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
-$events=$bot->parseEventRequest(file_get_contents('php://input'),$signature);
+// メッセージ識別子を取得
+$event_type = $event->type;
+$event_message_type = $event->message->type;
 
-foreach ($events as $event) {
-  $bot->replyText($event->getReplyToken(),'TextMessage');
+// メッセージの場合
+if ('message' == $event_type) {
+
+    // テキストメッセージの場合
+    if ('text' == $event_message_type) {
+
+        // メッセージの取得
+        $text = $event->message->text;
+
+        // メッセージを受け取ったらメッセージをそのまま返す
+        $text_message_builder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text);
+        $response = $bot->replyMessage($event->replyToken, $text_message_builder);
+    }
 }
+
 // デバッグ
+echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
