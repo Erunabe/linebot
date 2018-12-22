@@ -28,7 +28,7 @@ if ('message' == $event_type) {
     // テキストメッセージの場合
     if ('text' == $event_message_type) {
 
-        // メッセージの取得
+        // メッセージ取得
         $text = $event->message->text;
 
         // メッセージを受け取ったらメッセージをそのまま返す
