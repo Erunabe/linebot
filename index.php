@@ -43,7 +43,7 @@ foreach ((array)$events as $event){
     continue;
   }
     //オウム返し
-    replyTextMessage($bot,$event->getReplyToken(), $event->getText());
+    //replyTextMessage($bot,$event->getReplyToken(), $event->getText());
     //画像返信
     replyImageMessage($bot,$event->getReplyToken(),'https://'.$_SERVER['HTTP_HOST'].'/imgs/original.jpg','https://'.$_SERVER['HTTP_HOST'].'/imgs/preview.jpg');
 }
