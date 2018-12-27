@@ -47,7 +47,7 @@ foreach ((array)$events as $event){
     $bot->replyImage($bot,$event->getReplyToken(),'https://'.$_SERVER['HTTP_HOST'].'/imgs/original.jpg','https://'.$_SERVER['HTTP_HOST'].'/imgs/preview.jpg');
 }
 
-//テキストを返信。引数はLINEBot、返信先、テキスト
+//テキストを返信。引数はLINEBot、返信先テキスト
 function replyTextMessage($bot,$replyToken,$text) {
   // 返信を行いメッセージを取得
   // TextMessageBuilderの引数はテキスト
