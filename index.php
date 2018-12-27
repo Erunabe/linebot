@@ -31,9 +31,12 @@ if ('message' == $event_type) {
         // メッセージの取得
         $text = $event->message->text;
 
-        // メッセージを受け取ったらメッセージをそのまま返す
+        /*メッセージを受け取ったらメッセージをそのまま返す
         $text_message_builder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text);
-        $response = $bot->replyMessage($event->replyToken, $text_message_builder);
+        $response = $bot->replyMessage($event->replyToken, $text_message_builder);*/
+
+    　  //画像を返信
+        replyImageMessage($bot,$event->getReplyToken(),'https://'.$_SERVER['HTTP_HOST'].'/imgs/original.jpg','https://'.$_SERVER['HTTP_HOST'].'/imgs/preview.jpg');
     }
 }
 
