@@ -56,7 +56,7 @@ function replyTextMessage($bot,$replyToken,$text) {
   //レスポンスが異常な場合
   if(!$response->isSucceeded()){
     //エラー内容を出力
-    error_log('Failed! '. $response->getHTTPStatus . ' '.$response->getRawBody());
+    error_log('Failed!'. $response->getHTTPStatus . ' '.$response->getRawBody());
   }
 }
 
