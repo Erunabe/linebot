@@ -44,11 +44,7 @@ foreach ((array)$events as $event){
   }
   //オウム返し
   //$bot->replyText($event->getReplyToken(), $event->getText());
-<<<<<<< HEAD
-    $bot->replyImage($bot,$event->getReplyToken(),'https://'.$_SERVER['HTTP_HOST'].'/imgs/original.jpg','https://'.$_SERVER['HTTP_HOST'].'/imgs/preview.jpg');
-=======
-    $bot->replyImageMessage($bot,$event->getReplyToken(),'https://'.$_SERVER['HTTP_HOST'].'/imgs/original.jpg','https://'.$_SERVER['HTTP_HOST'].'/imgs/preview.jpg');
->>>>>>> ed5dcb603ccd14b477f6a82c0107b36e1c12aebb
+    replyImageMessage($bot,$event->getReplyToken(),'https://'.$_SERVER['HTTP_HOST'].'/imgs/original.jpg','https://'.$_SERVER['HTTP_HOST'].'/imgs/preview.jpg');
 }
 
 //テキストを返信。引数はLINEBot、返信先テキスト
