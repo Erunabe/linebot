@@ -42,8 +42,9 @@ foreach ((array)$events as $event){
     error_log('Non Message event has come');
     continue;
   }
-  //オウム返し
-  //$bot->replyText($event->getReplyToken(), $event->getText());
+    //オウム返し
+    bot->replyText($event->getReplyToken(), $event->getText());
+    //画像返信
     replyImageMessage($bot,$event->getReplyToken(),'https://'.$_SERVER['HTTP_HOST'].'/imgs/original.jpg','https://'.$_SERVER['HTTP_HOST'].'/imgs/preview.jpg');
 }
 
