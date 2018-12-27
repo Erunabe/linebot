@@ -37,5 +37,12 @@ if ('message' == $event_type) {
     }
 }
 
-// デバッグ
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+function replyImageMessage($bot,$replyToken,$originalImageUrl,$previewImageUrl){
+  //ImageMessageBuilderの引数は画像URLとサムネイルURL
+  $response = $bot->replyMessage($replyToken,new \LINE\LINEBot\MessageBuilder\ImageMessageBuilder($originalImageUrl,$previewImageUrl));
+
+  if(!$response->isSucceeded()){
+    error_log('Failed!!!'.$response->getHTTPStatus.' '.$response->getRawBody());
+  }
+}
+?>
